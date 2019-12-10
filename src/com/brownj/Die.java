@@ -4,8 +4,10 @@ import java.util.Random;
 import java.util.ArrayList;
 
 public class Die {
+    private ArrayList<Die> myDice;
     private char[] dieValues;
-    private final int MAXDIESIDES = 6;
+    private final int MAXDICE = 10;
+    private final int MAXDICESIDES = 6;
     private final char pin = 'P';
     private final char blank = 'B';
     private final char spare = 'O';
@@ -13,15 +15,27 @@ public class Die {
 
     Die(){
         dieValues = new char[MAXDIESIDES];
+        myDice = new ArrayList<>(MAXDICE);
         rand = new Random();
     }
 
-    void setDie(int dieIndex){
+    void setDice(){
+        for(int i = 0; i < MAXDICE; i++){
+            if(i < MAXDICE - 2){
+                setDie();
+            }
+            else {
+                setCircleDie();
+            }
+
+        }
+    }
+    void setDie(){
         int temp = rand.nextInt(MAXDIESIDES);
         int index = 0;
 
         for(int i = 0; i < MAXDIESIDES; i++){
-            if(dieIndex < MAXDIESIDES - 1){
+
                 if(i == temp){
                     dieValues[i] = pin;
                 }
@@ -66,45 +80,63 @@ public class Die {
         return -1;
     }
 
-    private int setCircleDie(int index){
+    private void setCircleDie(){
+        int temp = rand.nextInt(MAXDIESIDES);
+        int index = 0;
+
+        for(int i = 0; i < MAXDIESIDES; i++){
+
+            if(i == temp){
+                dieValues[i] = pin;
+                dieValues[setCircle(i)] = spare;
+            }
+            else{
+                if(dieValues[i] != spare)
+                    dieValues[i] = blank;
+            }//end if/else
+
+        }//end for
+
+    }//end setCircleDie()
+
+    private int setCircle(int index){
+
         switch(index){
             case 1:
-                        return index + 2;
+                return index + 2;
             case 2:
-                        return index + 2;
+                return index + 2;
             case 3:
-                        return index - 2;
+                return index - 2;
             case 4:
-                        return index - 2;
+                return index - 2;
             case 5:
-                        return index + 1;
+                return index + 1;
             case 6:
-                        return index - 1;
-        }
+                return index - 1;
+        }//end switch
+    }//end setCircle
 
-        return -1;
-    }
-
-    public static void main(String[] args){
-        Die myDie;
-        ArrayList<Die> myDice = new ArrayList<>(10);
-        myDie = new Die();
-
-        for(int i = 0; i < 10; i++) {
-            
-            myDie.setDie(i);
-            myDice.add(myDie);
-        }
-
-        int total = 0;
-
-        for(int i = 0; i < myDice.size(); i++){
-            myDie = myDice.get(i);
-            total += myDie.getRollValue();
-
-        }
-
-        int roll = 10 -total;
-        System.out.println("Pins left: " + total + " Roll was: " + roll);
-    }
+//    public static void main(String[] args){
+//        Die myDie;
+//        ArrayList<Die> myDice = new ArrayList<>(10);
+//        myDie = new Die();
+//
+//        for(int i = 0; i < 10; i++) {
+//
+//            myDie.setDie(i);
+//            myDice.add(myDie);
+//        }
+//
+//        int total = 0;
+//
+//        for(int i = 0; i < myDice.size(); i++){
+//            myDie = myDice.get(i);
+//            total += myDie.getRollValue();
+//
+//        }
+//
+//        int roll = 10 -total;
+//        System.out.println("Pins left: " + total + " Roll was: " + roll);
+//    }
 }//end class

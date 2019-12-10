@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4fb589d0-2cef-4988-afd1-8370edba8e08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/brownj/Die.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/brownj/Die.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +18,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Update_Files" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
@@ -75,7 +81,7 @@
       <updated>1575789760642</updated>
       <workItem from="1575789764369" duration="73933000" />
       <workItem from="1575945089100" duration="939000" />
-      <workItem from="1575946048944" duration="2789000" />
+      <workItem from="1575946048944" duration="4251000" />
     </task>
     <task id="LOCAL-00001" summary="updates">
       <created>1575946618363</created>
@@ -151,10 +157,10 @@
       <screen x="0" y="27" width="1440" height="873" />
     </state>
     <state x="315" y="199" width="800" height="522" key="Vcs.Push.Dialog.v2/0.27.1440.873/1440.0.1600.900@0.27.1440.873" timestamp="1575945242741" />
-    <state x="479" y="383" width="471" height="154" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1575946637691">
+    <state x="479" y="383" width="481" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1575950595426">
       <screen x="0" y="27" width="1440" height="873" />
     </state>
-    <state x="479" y="383" width="471" height="154" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1440.873/1440.0.1600.900@0.27.1440.873" timestamp="1575946637691" />
+    <state x="479" y="383" width="481" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1440.873/1440.0.1600.900@0.27.1440.873" timestamp="1575950595426" />
     <state x="383" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1575858954908">
       <screen x="0" y="27" width="1440" height="873" />
     </state>
