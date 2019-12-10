@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fb589d0-2cef-4988-afd1-8370edba8e08" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/brownj/Die.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/brownj/Die.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +107,10 @@
       <screen x="0" y="27" width="1440" height="873" />
     </state>
     <state x="246" y="54" width="937" height="812" key="CommitChangelistDialog2/0.27.1440.873/1440.0.1600.900@0.27.1440.873" timestamp="1575946618220" />
+    <state x="100" y="127" width="1240" height="673" key="DiffContextDialog" timestamp="1575952193084">
+      <screen x="0" y="27" width="1440" height="873" />
+    </state>
+    <state x="100" y="127" width="1240" height="673" key="DiffContextDialog/0.27.1440.873/1440.0.1600.900@0.27.1440.873" timestamp="1575952193084" />
     <state x="125" y="237" width="416" height="502" key="FileChooserDialogImpl" timestamp="1575946838045">
       <screen x="0" y="27" width="1440" height="873" />
     </state>

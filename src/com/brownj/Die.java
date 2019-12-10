@@ -1,4 +1,4 @@
-package com.brownj
+//package com.brownj
 
 import java.util.Random;
 import java.util.ArrayList;
@@ -67,18 +67,19 @@ public class Die {
     }
 
     private int setCircleDie(int index){
+
         switch(index){
+            case 0:
+                        return index + 2;
             case 1:
                         return index + 2;
             case 2:
-                        return index + 2;
+                        return index - 2;
             case 3:
                         return index - 2;
             case 4:
-                        return index - 2;
-            case 5:
                         return index + 1;
-            case 6:
+            case 5:
                         return index - 1;
         }
 
