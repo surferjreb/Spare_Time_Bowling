@@ -1,6 +1,7 @@
-package com.brownj;
+package com.brownj
 
 import java.util.Random;
+import java.util.ArrayList;
 
 public class Die {
     private char[] dieValues;
@@ -15,12 +16,12 @@ public class Die {
         rand = new Random();
     }
 
-    void setDie(int dieIndex, int maxIndex){
+    void setDie(int dieIndex){
         int temp = rand.nextInt(MAXDIESIDES);
         int index = 0;
 
         for(int i = 0; i < MAXDIESIDES; i++){
-            if(dieIndex < maxIndex - 1){
+            if(dieIndex < MAXDIESIDES - 1){
                 if(i == temp){
                     dieValues[i] = pin;
                 }
@@ -28,23 +29,11 @@ public class Die {
                     dieValues[i] = blank;
                 }
             }
-            else if(i == maxIndex - 1){
-                if(temp == i){
-                    dieValues[i] = pin;
-
-                    index = setCircleDie(i);
-                    dieValues[index] = spare;
-                }
-                else{
-                    if(dieValues[i] != pin)
-                        dieValues[i] = blank;
-                }
-            }
-        }//end for
+          }//end for
     }
 
     int getRollValue(){
-        int temp = rand.nextInt(MAXDIESIDES);
+        int temp = rand.nextInt(6);
         int value = getDie(temp);
 
         return value;
@@ -98,24 +87,24 @@ public class Die {
 
     public static void main(String[] args){
         Die myDie;
-        ArrayList<Die>
-
+        ArrayList<Die> myDice = new ArrayList<>(10);
+        myDie = new Die();
 
         for(int i = 0; i < 10; i++) {
-            myDie = new Die();
-            myDie.setDie(i, 10);
-
+            
+            myDie.setDie(i);
+            myDice.add(myDie);
         }
 
         int total = 0;
 
-        for(int i = 0; i < MAXDICE; i++){
+        for(int i = 0; i < myDice.size(); i++){
             myDie = myDice.get(i);
             total += myDie.getRollValue();
 
         }
 
-        int pinsLeft = 10 -total;
-        System.out.println("Pins left: " + pinsLeft + "Roll was: " + total);
+        int roll = 10 -total;
+        System.out.println("Pins left: " + total + " Roll was: " + roll);
     }
 }//end class
