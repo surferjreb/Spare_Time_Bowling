@@ -22,15 +22,16 @@ public class Die {
     void setDice(){
         for(int i = 0; i < MAXDICE; i++){
             if(i < MAXDICE - 2){
-                setDie();
+                myDice.add(setDie());
             }
             else {
-                setCircleDie();
+                myDice.add(setCircleDie());
             }
 
-        }
-    }
-    void setDie(){
+        }//end for
+    }//end setDice();
+
+    char[] setDie(){
         int temp = rand.nextInt(MAXDIESIDES);
         int index = 0;
 
@@ -44,6 +45,8 @@ public class Die {
                 }
             }
           }//end for
+
+        return dieValues
     }
 
     int getRollValue(){
@@ -80,7 +83,7 @@ public class Die {
         return -1;
     }
 
-    private void setCircleDie(){
+    private char[] setCircleDie(){
         int temp = rand.nextInt(MAXDIESIDES);
         int index = 0;
 
@@ -97,46 +100,45 @@ public class Die {
 
         }//end for
 
+        return dieValues;
     }//end setCircleDie()
 
     private int setCircle(int index){
 
         switch(index){
+            case 0:
+                return index + 2;
             case 1:
                 return index + 2;
             case 2:
-                return index + 2;
+                return index - 2;
             case 3:
                 return index - 2;
             case 4:
-                return index - 2;
-            case 5:
                 return index + 1;
-            case 6:
+            case 5:
                 return index - 1;
         }//end switch
     }//end setCircle
 
-//    public static void main(String[] args){
-//        Die myDie;
-//        ArrayList<Die> myDice = new ArrayList<>(10);
-//        myDie = new Die();
-//
-//        for(int i = 0; i < 10; i++) {
-//
-//            myDie.setDie(i);
-//            myDice.add(myDie);
-//        }
-//
-//        int total = 0;
-//
-//        for(int i = 0; i < myDice.size(); i++){
-//            myDie = myDice.get(i);
-//            total += myDie.getRollValue();
-//
-//        }
-//
-//        int roll = 10 -total;
-//        System.out.println("Pins left: " + total + " Roll was: " + roll);
-//    }
+    public static void main(String[] args){
+        Die myDie;
+        ArrayList<Die> myDice;
+        myDie = new Die();
+
+            myDie.setDie();
+            myDice.add(myDie);
+
+
+        int total = 0;
+
+        for(int i = 0; i < myDice.size(); i++){
+            myDie = myDice.get(i);
+            total += myDie.getRollValue();
+
+        }
+
+        int roll = 10 -total;
+        System.out.println("Pins left: " + total + " Roll was: " + roll);
+    }
 }//end class
