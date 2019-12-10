@@ -17,10 +17,11 @@ public class Die {
 
     void setDie(int dieIndex, int maxIndex){
         int temp = rand.nextInt(MAXDIESIDES);
+        int index = 0;
 
         for(int i = 0; i < MAXDIESIDES; i++){
             if(dieIndex < maxIndex - 1){
-                if(temp == i){
+                if(i == temp){
                     dieValues[i] = pin;
                 }
                 else{
@@ -29,10 +30,10 @@ public class Die {
             }
             else if(i == maxIndex - 1){
                 if(temp == i){
-                    dieValues[i] = spare;
+                    dieValues[i] = pin;
 
-                    int index = setCircleDie(i);
-                    dieValues[index] = pin;
+                    index = setCircleDie(i);
+                    dieValues[index] = spare;
                 }
                 else{
                     if(dieValues[i] != pin)
@@ -63,14 +64,14 @@ public class Die {
     private int getDieValue(char value){
 
         switch(value){
-            case 'P':
-                    return 1;
+            case 'B':
+                    return 0;
 
             case 'O':
                     return 10;
 
-            case 'B':
-                    return 0;
+            case 'P':
+                    return 1;
         }
 
         return -1;
@@ -106,5 +107,15 @@ public class Die {
 
         }
 
+        int total = 0;
+
+        for(int i = 0; i < MAXDICE; i++){
+            myDie = myDice.get(i);
+            total += myDie.getRollValue();
+
+        }
+
+        int pinsLeft = 10 -total;
+        System.out.println("Pins left: " + pinsLeft + "Roll was: " + total);
     }
 }//end class
