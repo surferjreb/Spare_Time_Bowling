@@ -4,6 +4,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Game {
+
     private GameFrame myFrame;
     private ArrayList<Bowler> myBowlers;
     private Bowler myBowler;

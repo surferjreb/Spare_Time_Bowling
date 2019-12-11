@@ -1,11 +1,11 @@
-package com.brownj
+package com.brownj;
 
 import java.util.Random;
 import java.util.ArrayList;
 
 public class Die {
-    private ArrayList<Die> myDice;
-    private char[] dieValues;
+    private ArrayList<char[]> myDice;
+    
     private final int MAXDICE = 10;
     private final int MAXDICESIDES = 6;
     private final char pin = 'P';
@@ -14,95 +14,63 @@ public class Die {
     private Random rand;
 
     Die(){
-        dieValues = new char[MAXDIESIDES];
         myDice = new ArrayList<>(MAXDICE);
         rand = new Random();
+        setDice();
     }
 
-    void setDice(){
+    private void setDice(){
         for(int i = 0; i < MAXDICE; i++){
-            if(i < MAXDICE - 2){
-                myDice.add(setDie());
+            if(i < MAXDICE - 1){
+               myDice.add(setDie());
             }
             else {
+                
                 myDice.add(setCircleDie());
             }
 
         }//end for
     }//end setDice();
+//-------------------------------------------------------
+    private char[] setDie(){
+        int temp = rand.nextInt(MAXDICESIDES);
+        char[] die = new char[MAXDICESIDES];
 
-    char[] setDie(){
-        int temp = rand.nextInt(MAXDIESIDES);
-        int index = 0;
-
-        for(int i = 0; i < MAXDIESIDES; i++){
+        for(int i = 0; i < MAXDICESIDES; i++){
 
                 if(i == temp){
-                    dieValues[i] = pin;
+                    die[i] = pin;
                 }
                 else{
-                    dieValues[i] = blank;
+                    die[i] = blank;
                 }
-            }
-          }//end for
+            }//end for
+      return die;
+    }//end method
+//-------------------------------------------------------
+   
+//-------------------------------------------------------
 
-        return dieValues
-    }
-
-    int getRollValue(){
-        int temp = rand.nextInt(6);
-        int value = getDie(temp);
-
-        return value;
-    }
-
-    private int getDie(int rollValue){
-
-        for(int i = 0; i < dieValues.length; i++){
-            if(i == rollValue){
-                return getDieValue(dieValues[i]);
-            }
-        }
-
-        return -1;
-    }
-
-    private int getDieValue(char value){
-
-        switch(value){
-            case 'B':
-                    return 0;
-
-            case 'O':
-                    return 10;
-
-            case 'P':
-                    return 1;
-        }
-
-        return -1;
-    }
-
+//-------------------------------------------------------
     private char[] setCircleDie(){
-        int temp = rand.nextInt(MAXDIESIDES);
-        int index = 0;
+        int temp = rand.nextInt(MAXDICESIDES);
+        char[] die = new char[MAXDICESIDES];
 
-        for(int i = 0; i < MAXDIESIDES; i++){
+        for(int i = 0; i < MAXDICESIDES; i++){
 
             if(i == temp){
-                dieValues[i] = pin;
-                dieValues[setCircle(i)] = spare;
+                die[i] = pin;
+                die[setCircle(i)] = spare;
             }
             else{
-                if(dieValues[i] != spare)
-                    dieValues[i] = blank;
+                if(die[i] != spare)
+                    die[i] = blank;
             }//end if/else
 
         }//end for
-
-        return dieValues;
+      return die;
     }//end setCircleDie()
-
+//-------------------------------------------------------
     private int setCircle(int index){
 
         switch(index){
@@ -119,26 +87,28 @@ public class Die {
             case 5:
                 return index - 1;
         }//end switch
+        
+        return 0;
     }//end setCircle
-
+//-------------------------------------------------------
+    ArrayList getDice(){
+        return myDice;
+    }
+//-------------------------------------------------------
     public static void main(String[] args){
         Die myDie;
-        ArrayList<Die> myDice;
+        ArrayList<char[]> myDice;
         myDie = new Die();
-
-            myDie.setDie();
-            myDice.add(myDie);
-
-
-        int total = 0;
-
+        char[] die;
+        myDice = myDie.getDice();
+        
         for(int i = 0; i < myDice.size(); i++){
-            myDie = myDice.get(i);
-            total += myDie.getRollValue();
-
+        System.out.print("Die #" + i + " ");
+            for(int j = 0; j < 6; j++){
+               System.out.print(myDice.get(i)[j] + ", ");
+            }
+            
+            System.out.println();
         }
-
-        int roll = 10 -total;
-        System.out.println("Pins left: " + total + " Roll was: " + roll);
     }
 }//end class
