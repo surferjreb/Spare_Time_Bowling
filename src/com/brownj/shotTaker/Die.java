@@ -1,4 +1,4 @@
-package com.brownj;
+package com.brownj.shotTaker;
 
 import java.util.Random;
 import java.util.ArrayList;
@@ -48,9 +48,39 @@ public class Die {
       return die;
     }//end method
 //-------------------------------------------------------
-   
-//-------------------------------------------------------
+    ArrayList<char[]> getRandomDice(int dieAmount){
+        int temp = 0;
+        ArrayList<char[]> myNewDice = new ArrayList<>(dieAmount);
 
+
+        for(int i = 0; i < dieAmount; i++){
+            temp = rand.nextInt(MAXDICE - 1);
+
+            if(!myDice.contains(myDice.get(temp))) {
+                myNewDice.add(myDice.get(temp));
+            }
+            else{
+                myNewDice = getNewRandomDie(myNewDice);
+            }
+        }
+
+        return myNewDice;
+    }
+//-------------------------------------------------------
+    private ArrayList<char[]> getNewRandomDie(ArrayList<char[]> myNewDice){
+    int temp = 0;
+
+        temp = rand.nextInt(MAXDICE - 1);
+
+        if(!myNewDice.contains(myDice.get(temp))) {
+            myNewDice.add(myDice.get(temp));
+        }
+        else{
+            myNewDice = getNewRandomDie(myNewDice);
+        }
+
+    return myNewDice;
+}
 //-------------------------------------------------------
     private char[] setCircleDie(){
         int temp = rand.nextInt(MAXDICESIDES);
