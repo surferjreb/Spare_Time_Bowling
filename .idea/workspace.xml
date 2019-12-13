@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="911cb6f2-8dde-49ad-a0d7-cc94458d31d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/brownj/shotTaker/Cup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/brownj/shotTaker/RollManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spare_Time_Bowling.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Spare_Time_Bowling.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/brownj/Cup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/brownj/Die.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/brownj/shotTaker/Die.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/brownj/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/brownj/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,11 +61,24 @@
       <option name="presentableId" value="Default" />
       <updated>1576041198766</updated>
       <workItem from="1576041200651" duration="11812000" />
+      <workItem from="1576154322729" duration="1336000" />
     </task>
+    <task id="LOCAL-00001" summary="Added and subtracted some classes.  The roll mechanism of the program is almost fully complete.">
+      <created>1576154450268</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1576154450268</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added and subtracted some classes.  The roll mechanism of the program is almost fully complete." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added and subtracted some classes.  The roll mechanism of the program is almost fully complete." />
   </component>
   <component name="WindowStateProjectService">
     <state x="528" y="167" width="374" height="586" key="#com.intellij.ide.util.MemberChooser" timestamp="1576053222700">
@@ -92,6 +93,10 @@
       <screen x="0" y="27" width="1440" height="873" />
     </state>
     <state x="464" y="349" width="511" height="235" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.27.1440.873/1440.0.1600.900@0.27.1440.873" timestamp="1576051635506" />
+    <state x="221" y="54" width="988" height="812" key="CommitChangelistDialog2" timestamp="1576154449662">
+      <screen x="0" y="27" width="1440" height="873" />
+    </state>
+    <state x="221" y="54" width="988" height="812" key="CommitChangelistDialog2/0.27.1440.873/1440.0.1600.900@0.27.1440.873" timestamp="1576154449662" />
     <state x="368" y="291" key="com.intellij.ide.util.TipDialog" timestamp="1576154331859">
       <screen x="0" y="27" width="1440" height="873" />
     </state>
