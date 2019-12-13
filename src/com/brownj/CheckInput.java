@@ -29,6 +29,10 @@ public class CheckInput {
         this.bowlerIndex = Integer.parseInt(bowlers);
     }//end setBowlerIndex
 //--------------------------------------------------------
+    int getBowlerIndex(){
+        return bowlerIndex;
+    }
+//--------------------------------------------------------
     private boolean checkBowlerNumber(int bowlerCount) throws NumberFormatException{
 
         if (bowlerCount > 0 && bowlerCount <= MAXBOWLERS) {

@@ -5,20 +5,18 @@ import java.util.ArrayList;
 public class Bowler {
     private final int MAXFRAMES = 10;
     private int bowlerId;
-    private ArrayList<GameFrame> frameScore;
+    private ArrayList<Integer> Score;
     private int finalScore;
 
 
-    Bowler(int bowlerId){
-        this.bowlerId = bowlerId;
-        frameScore = new ArrayList(MAXFRAMES);
+    Bowler() {
+        bowlerId = 0;
+        Score = new ArrayList(MAXFRAMES);
         this.finalScore = 0;
-
     }
-//-------------------------------------------------------
-//set values
-    void setScore(int frame, int score){
-        frameScore.get(frame).setScore(score);
+
+    void setScore(int frame, int bowlerScore){
+        score.get(frame).setScore(score);
     }
 
     void setFinalScore(){

@@ -6,16 +6,18 @@ public class GameManager {
 
     private Bowler myBowler;
     private ArrayList<Bowler> myBowlers;
-    private final int MAXBOWLERS = 99;
     private int bowlerIndex;
-    private GameCard myCard;
-    private GameFrame myFrame;
-    private Game myGame;
+    private final int MAXBOWLERS = 99;
+    private final int MINBOWLERS = 1;
 
-    GameManager(){
+    GameManager(int bowlers){
+        this.bowlerIndex = bowlers;
+        myBowlers = new ArrayList<Bowler>(bowlers);
+        myBowler = new Bowler();
+
     }
 
-    void InitiateGame(String bowlerAmount, GameCard myCard) {
+    void StartGame(String bowlerAmount, GameCard myCard) {
 
             this.bowlerIndex = setBowlerIndex(bowlerAmount);
             this.myCard = myCard;

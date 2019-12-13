@@ -3,16 +3,18 @@ package com.brownj;
 public class SpareTimeDriver {
 
     public static void main(String[] args) {
-        args = new String[2];
+        args = new String[1];
 
-        Controller myControl = new Controller();
         CheckInput myCheck = new CheckInput();
+        GameManager myGame;
+
         //test program
         args[0]= "2";
 
         try {
             if (myCheck.checkAmount(args)) {
-                myControl.runController(args);
+                myGame = new GameManager(myCheck.getBowlerIndex());
+                myGame.StartGame();
             }
         }
         catch(Exception e){

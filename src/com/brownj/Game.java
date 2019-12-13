@@ -1,7 +1,5 @@
 package com.brownj;
 
-import com.brownj.shotTaker.Cup;
-
 import java.util.ArrayList;
 
 public class Game {

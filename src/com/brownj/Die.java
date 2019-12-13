@@ -1,4 +1,4 @@
-package com.brownj.shotTaker;
+package com.brownj;
 
 import java.util.Random;
 import java.util.ArrayList;
@@ -20,6 +20,7 @@ public class Die {
     }
 
     private void setDice(){
+      if(myDice.isEmpty()){
         for(int i = 0; i < MAXDICE; i++){
             if(i < MAXDICE - 1){
                myDice.add(setDie());
@@ -30,6 +31,8 @@ public class Die {
             }
 
         }//end for
+     }
+     
     }//end setDice();
 //-------------------------------------------------------
     private char[] setDie(){
@@ -130,8 +133,9 @@ public class Die {
         ArrayList<char[]> myDice;
         myDie = new Die();
         char[] die;
-        myDice = myDie.getDice();
-        
+
+        try{
+            myDice = myDie.getDice();
         for(int i = 0; i < myDice.size(); i++){
         System.out.print("Die #" + i + " ");
             for(int j = 0; j < 6; j++){
@@ -139,6 +143,10 @@ public class Die {
             }
             
             System.out.println();
+        }
+        }
+        catch(Exception e){
+         e.printStackTrace();
         }
     }
 }//end class

@@ -1,4 +1,4 @@
-package com.brownj.shotTaker;
+package com.brownj;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -15,6 +15,7 @@ public class Cup {
 
     Cup(){
         myDie = new Die();
+        myDice = new ArrayList<>();
         myDice = myDie.getDice();
         firstRoll = new ArrayList(MAXDICE);
         secondRoll = new ArrayList(MAXDICE);
