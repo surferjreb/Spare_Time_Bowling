@@ -13,13 +13,17 @@ public class CheckInput {
         try {
 
             if(args.length > 0) {
-                setBowlerIndex(args[0]);
-                return checkBowlerNumber(bowlerIndex);
+                int checkValue = Integer.parseInt(args[0]);
+
+                if(checkValue >= 1 && checkValue <= 99) {
+                    setBowlerIndex(args[0]);
+                    return checkBowlerNumber(bowlerIndex);
+                }
             }//end if
 
         }
         catch (Exception e){
-            e.printStackTrace();
+            displayUsage();
         }//end try/catch
 
         return false;
@@ -43,4 +47,18 @@ public class CheckInput {
         throw new NumberFormatException();
 
     }
-}
+//--------------------------------------------------------
+    public void displayUsage(){
+        System.out.println();
+        System.out.println("Usage: java SpareTimeDriver <#OfBowlers>");
+        System.out.println();
+        System.out.print("\t<#OfBowlers>    : The number of bowlers you want in the game.\n"+
+            "\t\t\t\t The amount of bowlers you can have is 1 - 99\n");
+        System.out.println();
+
+    }
+//--------------------------------------------------------
+    public static void main(String[] args){
+
+    }
+}//end class

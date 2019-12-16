@@ -124,7 +124,7 @@ public class Die {
         return 0;
     }//end setCircle
 //-------------------------------------------------------
-    ArrayList getDice(){
+    ArrayList<char[]> getDice(){
         return myDice;
     }
 //-------------------------------------------------------

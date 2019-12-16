@@ -14,11 +14,11 @@ public class SpareTimeDriver {
         try {
             if (myCheck.checkAmount(args)) {
                 myGame = new GameManager(myCheck.getBowlerIndex());
-                myGame.StartGame();
+                myGame.runGame();
             }
         }
         catch(Exception e){
-            e.printStackTrace();
+            myCheck.displayUsage();
         }
     }
 }

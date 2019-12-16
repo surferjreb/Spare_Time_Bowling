@@ -5,20 +5,20 @@ import java.util.Random;
 
 public class Cup {
     private ArrayList<char[]> myDice;
-    private ArrayList firstRoll;
-    private ArrayList secondRoll;
+    private ArrayList<Character> firstRoll;
+    private ArrayList<Character> secondRoll;
     private Die myDie;
     private final int MAXDICE = 10;
     private final int MAXDIE = 6;
     private Random rand;
-
+    private String score;
 
     Cup(){
         myDie = new Die();
         myDice = new ArrayList<>();
         myDice = myDie.getDice();
-        firstRoll = new ArrayList(MAXDICE);
-        secondRoll = new ArrayList(MAXDICE);
+        firstRoll = new ArrayList<Character>(MAXDICE);
+        secondRoll = new ArrayList<Character>(MAXDICE);
         rand = new Random();
                 
     }
@@ -27,14 +27,17 @@ public class Cup {
         int roll = 0;
 
         try {
-            for (int i = 0; i < MAXDICE; i++) {
+                if(!firstRoll.isEmpty()){
+                    firstRoll.clear();
+                }
+                for (int i = 0; i < MAXDICE; i++) {
                
-                roll = rand.nextInt(6);
-                       firstRoll.add(myDice.get(i)[roll]);
+                    roll = rand.nextInt(6);
+                    firstRoll.add(myDice.get(i)[roll]);
 
-            }
+                }
 
-            secondShotRoll(getRollPinCount(firstRoll));
+            score = secondShotRoll(getRollPinCount(firstRoll));
         }
         catch(Exception e){
             e.printStackTrace();
@@ -43,41 +46,52 @@ public class Cup {
             
     }//end diceRoll()
 //--------------------------------------------------    
-    private void secondShotRoll(int pins){
-
-      ArrayList<char[]> myReRoll = myDie.getRandomDice(pins);
-      
+    private String secondShotRoll(int pins){
       int roll = 0;
+      int secondShot;
+      int reRoll = 10 - pins;
+      ArrayList<char[]> myReRoll = myDie.getRandomDice(reRoll);
 
         try {
-            for (int i = 0; i < pins; i++) {
-               
-                roll = rand.nextInt(6);
-                       secondRoll.add(myReRoll.get(i)[roll]);
+            if(myReRoll.size() > 0) {
 
-            }
-        }
+                for (int i = 0; i < reRoll; i++) {
+
+                    roll = rand.nextInt(6);
+                    if(!secondRoll.isEmpty()) {
+                        secondRoll.clear();
+                    }
+                    secondRoll.add(myReRoll.get(i)[roll]);
+
+                }
+                secondShot = getRollPinCount(secondRoll);
+
+                return checkForSpare(pins, secondShot);
+            }//end if
+
+            return checkForStrike(pins);
+        }//end try
         catch(Exception e){
             e.printStackTrace();
-        }
+        }//end catch
 
-      
+      return "-1";
     }//end secondRoll()
 //---------------------------------------------------          
-    ArrayList getFirstRoll(){
+    ArrayList<Character> getFirstRoll(){
         return firstRoll;
     }
 //---------------------------------------------------
-    ArrayList getSecondRoll(){
+    ArrayList<Character> getSecondRoll(){
         return secondRoll;
     }
 //------------------------------------------------------
-    int getRollPinCount(ArrayList myRoll){
+    int getRollPinCount(ArrayList<Character> myRoll){
         int pins = checkForO(myRoll);
 
         for(int i = 0; i < myRoll.size(); i++){
 
-            if(myRoll.get(i).equals('P')){
+            if(myRoll.get(i) == 'B'){
                 pins++;
             }
 
@@ -86,24 +100,7 @@ public class Cup {
         return pins;
     }
 //------------------------------------------------------
-    int getShotScore(ArrayList myRoll){
-
-        int score = 0;
-
-        for(int i = 0; i < myRoll.size(); i++){
-
-            if(myRoll.get(i).equals('B')){
-                score++;
-            }
-
-        }
-
-       if(myRoll.contains('O') && !myRoll.contains('P'))
-         score++;
-
-        return score;
-    }
-    private int checkForO(ArrayList myRoll){
+    private int checkForO(ArrayList<Character> myRoll){
 
         if(myRoll.contains('O') && myRoll.contains('P'))
             return 1;
@@ -111,35 +108,37 @@ public class Cup {
         return 0;
     }
 //------------------------------------------------------
+    private String checkForStrike(int pins){
+        int totalPins = 10 - pins;
+
+        if(totalPins == 10){
+            return "X";
+        }
+
+        return String.valueOf(pins);
+    }
+//------------------------------------------------------
+    private String checkForSpare(int firstShot, int secondShot){
+        int totalPins = firstShot + secondShot;
+
+        if(totalPins == 10){
+            return String.valueOf(firstShot)+"/";
+        }
+
+        return String.valueOf(firstShot) + String.valueOf(secondShot);
+    }
+//------------------------------------------------------
+    String getScore(){
+        return score;
+    }
+//------------------------------------------------------
     public static void main(String[] args){
         Cup myCup = new Cup();
-        ArrayList myRoll;
-        ArrayList myRoll2;
+
         myCup.runFirstRoll();
-        myRoll = myCup.getFirstRoll();
+        String score = myCup.getScore();
 
-        for(int i = 0; i < 10; i++){
-            
-                System.out.print(myRoll.get(i) + ", ");
-            
-        }
-        int temp = myCup.getRollPinCount(myRoll);
-        int temp2 = myCup.getShotScore(myRoll);
-        System.out.println("Pins left: " + temp + ", Shot score: " + temp2);
-        System.out.println("\n");
-        myCup.secondShotRoll(temp);
-        myRoll2 = myCup.getSecondRoll();
-
-        for(int i = 0; i < temp; i++){
-
-            System.out.print(myRoll2.get(i) + ", ");
-
-        }
-        temp = myCup.getRollPinCount(myRoll2);
-        temp2 = myCup.getShotScore(myRoll2);
-        System.out.println();
-        System.out.println("Pins left: " + temp + ", Shot score: " + temp2);
-        System.out.println();
+        System.out.println("Score: "+ score);
         
     }
 
