@@ -5,22 +5,22 @@ import java.util.ArrayList;
 public class GameManager {
 
     private Bowler myBowler;
-    private ArrayList<Bowler> myBowlers;
-    private final int MAXBOWLERS = 99;
-    private int bowlerIndex;
     private GameCard myCard;
-    private GameFrame myFrame;
     private Game myGame;
+    private ArrayList<Bowler> myBowlers;
+    private int bowlerIndex;
+    private final int MAXBOWLERS = 99;
+    private final int MINBOWLERS = 1;
 
-    GameManager(){
+    GameManager(int bowlers){
+        this.bowlerIndex = bowlers;
+        myBowlers = new ArrayList<Bowler>(bowlers);
+        myCard = new GameCard();
+
     }
 
-    void InitiateGame(String bowlerAmount, GameCard myCard) {
-
-            this.bowlerIndex = setBowlerIndex(bowlerAmount);
-            this.myCard = myCard;
+    void runGame() {
             //create Bowlers
-            myBowlers = new ArrayList<>(bowlerIndex);
             createBowlers();
             displayBowlers();
             //start Game
@@ -36,9 +36,7 @@ public class GameManager {
         }
     }
 //--------------------------------------------------------
-    private int setBowlerIndex(String bowlers){
-        return Integer.parseInt(bowlers);
-    }
+
 //--------------------------------------------------------
     public void displayBowlers(){
         for(int i = 0; i < myBowlers.size(); i++){
@@ -47,10 +45,13 @@ public class GameManager {
     }
 //--------------------------------------------------------
     private void startGame(){
-        myGame = new Game();
+        myGame = new Game(myCard);
 
-        myGame.runGame(myBowlers);
+        myGame.beginGame(myBowlers);
 
     }
+//--------------------------------------------------------
+    public static void main(String[] args){
 
+    }
 }
